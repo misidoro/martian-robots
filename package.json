@@ -1,0 +1,13 @@
+{
+  "name": "martian-robots",
+  "version": "1.0.0",
+  "description": "",
+  "main": "solution.js",
+  "scripts": {
+    "start": "node solution",
+    "test": "jest",
+    "test1": "solution < input.txt"
+  },
+  "author": "",
+  "license": "ISC"
+}
