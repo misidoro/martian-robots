@@ -1,10 +1,9 @@
-Todo:
-[x] maximum value for any coordinate is 50
-[x] All instruction strings will be less than 100 characters in length.
-[] If a robot falls off the edge of the grid the word “LOST”
-should be printed after the position and orientation.
+# Summary
 
-Assumptions:
+The solution works for the first scenario but the remaining scenarios are failing right now.
+Implementing LOST functionality it's still missing.
+
+# Assumptions:
 
 - input values are separated by one space
 
