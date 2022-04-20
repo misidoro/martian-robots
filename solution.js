@@ -71,10 +71,14 @@ myInterface.on("line", (line) => {
   if (line.includes(" ")) {
     const lineSplitted = line.split(" ");
     if (lineSplitted.length === 2) {
-      console.log("init grid");
       state = [];
       height = parseInt(lineSplitted[0]);
       width = parseInt(lineSplitted[1]);
+      if (width > 50 || height > 50) {
+        console.log("maximum value for any coordinate is 50");
+        return;
+      }
+      console.log("init grid");
       for (i = 0; i < lineSplitted[0]; i++) {
         state.push(Array(width).fill(false));
       }
