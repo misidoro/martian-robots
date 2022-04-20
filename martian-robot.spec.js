@@ -19,7 +19,71 @@ describe("Martian robot", () => {
     robot.setDirection("N");
     robot.setStartPosition(0, 0);
     robot.moveForward();
-    robot.logState();
     expect(robot.getPosition()).toEqual({ x: 0, y: 1 });
+  });
+  test("should pass the first test", () => {
+    // 5 3
+    // 1 1 E
+    // RFRFRFRF
+    const robot = new MartianRobot(5, 3);
+    robot.fillBlankState();
+    robot.setDirection("E");
+    robot.setStartPosition(1, 1);
+    robot.turnRight();
+    robot.moveForward();
+    robot.turnRight();
+    robot.moveForward();
+    robot.turnRight();
+    robot.moveForward();
+    robot.turnRight();
+    robot.moveForward();
+    expect(robot.getPosition()).toEqual({ x: 1, y: 1 });
+    expect(robot.getDirection()).toEqual("E");
+  });
+  test("should pass the second test", () => {
+    // 5 3
+    // 3 2 N
+    // FRRFLLFFRRFLL
+    const robot = new MartianRobot(5, 3);
+    robot.fillBlankState();
+    robot.setDirection("N");
+    robot.setStartPosition(3, 2);
+    robot.moveForward();
+    robot.turnRight();
+    robot.turnRight();
+    robot.moveForward();
+    robot.turnLeft();
+    robot.turnLeft();
+    robot.moveForward();
+    robot.moveForward();
+    robot.turnRight();
+    robot.turnRight();
+    robot.moveForward();
+    robot.turnLeft();
+    robot.turnLeft();
+    expect(robot.getPosition()).toEqual({ x: 3, y: 3 });
+    expect(robot.getDirection()).toEqual("N");
+    // 3 3 N LOST
+  });
+  test("should pass the third test", () => {
+    // 5 3
+    // 0 3 W
+    // LLFFFLFLFL
+    const robot = new MartianRobot(5, 3);
+    robot.fillBlankState();
+    robot.setDirection("W");
+    robot.setStartPosition(0, 3);
+    robot.turnLeft();
+    robot.turnLeft();
+    robot.moveForward();
+    robot.moveForward();
+    robot.moveForward();
+    robot.turnLeft();
+    robot.moveForward();
+    robot.turnLeft();
+    robot.moveForward();
+    robot.turnLeft();
+    expect(robot.getPosition()).toEqual({ x: 2, y: 3 });
+    expect(robot.getDirection()).toEqual("S");
   });
 });

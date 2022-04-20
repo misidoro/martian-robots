@@ -22,8 +22,12 @@ class MartianRobot {
     this.direction = value;
   }
 
+  getDirection() {
+    return this.direction;
+  }
+
   setStartPosition(x, y) {
-    this.state[x][y] = true;
+    this.state[y][x] = true;
   }
 
   turnRight() {
@@ -36,7 +40,7 @@ class MartianRobot {
 
   moveForward() {
     const pos = this.getPosition();
-    this.state[pos.x][pos.y] = false;
+    this.state[pos.y][pos.x] = false;
     switch (this.direction) {
       case "N": {
         this.state[pos.y + 1][pos.x] = true;
