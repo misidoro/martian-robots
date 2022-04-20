@@ -90,10 +90,15 @@ myInterface.on("line", (line) => {
       initPos.y = lineSplitted[1];
       direction = lineSplitted[2];
       state[initPos.x][initPos.y] = true;
-      console.table(state);
     }
   } else {
     // commands
+    if (line.length > 100) {
+      console.log(
+        "All instruction strings will be less than 100 characters in length."
+      );
+      return;
+    }
     const commands = line.split("");
     console.log(commands);
     commands.forEach((command) => {
